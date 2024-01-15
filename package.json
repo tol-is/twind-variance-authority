@@ -1,8 +1,8 @@
 {
   "name": "twind-variance-authority",
   "author": "Tolis Christodoulou <me@tol.is>",
-  "homepage": "https://github.com/tol-is/tva",
-  "repository": "https://github.com/tol-is/tva",
+  "homepage": "https://github.com/tol-is/twind-variance-authority",
+  "repository": "https://github.com/tol-is/twind-variance-authority",
   "description": "CVA for Twind",
   "keywords": [
     "typescript",
@@ -12,7 +12,7 @@
     "UI Kit",
     "design system"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "source": "src/tva.ts",
   "main": "dist/tva.js",
@@ -39,7 +39,6 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.23.8",
     "@parcel/packager-ts": "2.11.0",
     "@parcel/transformer-typescript-types": "2.11.0",
     "@types/jest": "^29.5.11",

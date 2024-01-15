@@ -28,4 +28,10 @@ describe('it', () => {
 
     expect(classes).toEqual('base-class bg-white');
   });
+
+  it('renders without crashing', () => {
+    const classes = styles({ size: { _: 'md' } });
+
+    expect(classes).toEqual('base-class bg-white');
+  });
 });

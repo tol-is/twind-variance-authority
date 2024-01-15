@@ -62,7 +62,14 @@ export const tva =
   <V extends VariantsSchema>(config: Config<V>): Factory<V> =>
   (params = {} as ParamsOf<V>) => {
     const result = [config.base];
-    const factoryParams = { ...config.defaults, ...params };
+
+    const configVariants = Object.keys(config.variants);
+    const factoryParams = configVariants.reduce((acc, variantKey) => {
+      const variantValue = params[variantKey] ?? config.defaults;
+      acc[variantKey] = variantValue as Param<V>;
+      return acc;
+    }, {});
+
     const paramsKeys = Object.keys(factoryParams);
 
     for (const paramsVariantKey of paramsKeys) {
