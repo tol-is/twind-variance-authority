@@ -30,7 +30,7 @@
   "scripts": {
     "start": "parcel watch",
     "build": "parcel build",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "prettier": {
     "printWidth": 80,

@@ -1,8 +1,8 @@
 import { tva } from './tva';
 
 const styles = tva({
-  base: 'base-class',
-  variants: {
+  base: 'tracking-tight',
+  props: {
     size: {
       sm: 'text-sm',
       md: ['text-md', 'tracking-wide'],
@@ -23,15 +23,41 @@ const styles = tva({
 });
 
 describe('it', () => {
-  it('renders without crashing', () => {
+  it('no args', () => {
     const classes = styles();
 
-    expect(classes).toEqual('base-class bg-white');
+    expect(classes).toEqual('tracking-tight text-sm bg-white');
   });
 
-  it('renders without crashing', () => {
-    const classes = styles({ size: { _: 'md' } });
+  it('number param', () => {
+    const classes = styles({ level: 1 });
 
-    expect(classes).toEqual('base-class bg-white');
+    expect(classes).toEqual('tracking-tight text-sm text-uppercase bg-white');
+  });
+
+  it('number param as string ', () => {
+    const classes = styles({ level: '1' });
+
+    expect(classes).toEqual('tracking-tight text-sm text-uppercase bg-white');
+  });
+
+  it('boolean param', () => {
+    const classes = styles({ invert: true });
+
+    expect(classes).toEqual('tracking-tight text-sm bg-black');
+  });
+
+  it('boolean param as string', () => {
+    const classes = styles({ invert: 'true' });
+
+    expect(classes).toEqual('tracking-tight text-sm bg-black');
+  });
+
+  it('responsive side arg', () => {
+    const classes = styles({ size: { _: 'sm', md: 'md' }, invert: false });
+
+    expect(classes).toEqual(
+      'tracking-tight text-sm md:(text-md tracking-wide) bg-white'
+    );
   });
 });
