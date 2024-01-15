@@ -1,7 +1,5 @@
 type NeverUndefined<T> = T extends undefined ? never : T;
 
-type MaybeUndefined<T> = T | undefined;
-
 type Maybe<T> = T | undefined | null;
 
 type ConfigClassName = Maybe<string | string[]>;
@@ -40,9 +38,9 @@ type DefaultsOf<V> = V extends VariantsSchema
 
 type Config<V> = V extends NeverUndefined<VariantsSchema>
   ? {
-      base: MaybeUndefined<ConfigClassName>;
+      base?: ConfigClassName;
       props: V;
-      defaults: MaybeUndefined<DefaultsOf<V>>;
+      defaults?: DefaultsOf<V>;
     }
   : never;
 
